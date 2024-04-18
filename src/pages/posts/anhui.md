@@ -22,7 +22,7 @@ meta:
 keywords: key1, key2, key3
 ---
 
-![黄山景色 五岳归来不看山，黄山回来不看岳|big](https://img2.baidu.com/it/u=3795876081,848637865&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=752)
+![绝美迎客松。|wide](https://5b0988e595225.cdn.sohucs.com/images/20190926/eb3422358c4f4812aecdd5513d72cae5.jpeg)
 
 ## 概述
 - **中文名**：黄山风景区
@@ -38,16 +38,16 @@ keywords: key1, key2, key3
 - **占地面积**：山区1200平方千米
 - **建议游玩时长**：2-3天
 - **适宜游玩季节**：四季皆宜
-![绝美迎客松。|wide](https://5b0988e595225.cdn.sohucs.com/images/20190926/eb3422358c4f4812aecdd5513d72cae5.jpeg)
+
 ## 主要景点
 
 - **玉屏景区**：以玉屏楼为中心，莲花峰和天都峰为主体，驰名中外的迎客松挺立在此。
-![玉屏景区|inline](https://img0.baidu.com/it/u=1252123829,1696625199&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=334)
+![玉屏景区|big](https://img0.baidu.com/it/u=1252123829,1696625199&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=334)
 
 - **北海景区**：海拔1600米左右的高山开阔地带，以伟、奇、险、幻为特色。
-![北海景区|inline](https://img1.baidu.com/it/u=1954147171,2075100306&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=333)
+![北海景区|big](https://img1.baidu.com/it/u=1954147171,2075100306&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=333)
 - **松谷景区**：后山景区，以其静谧幽美著称，有芙蓉岭、松谷禅林等古建筑。
-![松谷景区|inline](https://wx1.sinaimg.cn/large/008fHVgdly4gqorie1ykbj315o0s2drl.jpg)
+![松谷景区|big](https://wx1.sinaimg.cn/large/008fHVgdly4gqorie1ykbj315o0s2drl.jpg)
 
 ## 自然资源
 
