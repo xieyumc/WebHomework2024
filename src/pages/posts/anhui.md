@@ -22,7 +22,7 @@ meta:
 keywords: key1, key2, key3
 ---
 
-![绝美迎客松。|wide](https://5b0988e595225.cdn.sohucs.com/images/20190926/eb3422358c4f4812aecdd5513d72cae5.jpeg)
+![绝美迎客松。|inline](https://5b0988e595225.cdn.sohucs.com/images/20190926/eb3422358c4f4812aecdd5513d72cae5.jpeg)
 
 ## 概述
 - **中文名**：黄山风景区
