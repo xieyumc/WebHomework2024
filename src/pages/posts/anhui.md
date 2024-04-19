@@ -10,7 +10,7 @@ cover:
     alt: 'cover'
     
 tags: ["新闻稿", "安徽", "黄山景色"] 
-theme: 'light'
+theme: 'dark'
 featured: true
 
 meta:
