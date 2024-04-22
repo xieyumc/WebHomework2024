@@ -40,6 +40,9 @@ keywords: key1, key2, key3
 - **适宜游玩季节**：四季皆宜
 
 ## 主要景点
+- **松谷景区**：
+
+![松谷。|big](https://chuangshicdn.mpres.51vv.com/v_block/6ffdf6e42a885a6b2119fc1c00b1435a.jpeg)
 
 - **玉屏景区**：
 以玉屏楼为中心，莲花峰和天都峰为主体，驰名中外的迎客松挺立在此。
