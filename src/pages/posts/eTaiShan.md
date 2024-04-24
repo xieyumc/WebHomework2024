@@ -9,7 +9,7 @@ cover:
     square: 'https://upload.wikimedia.org/wikipedia/commons/7/74/%E6%B3%B0%E5%B1%B1_%E5%8D%97%E5%A4%A9%E9%97%A8.jpg'
     alt: 'cover'
     
-tags: ["新闻稿", "山东", "黄山景色"] 
+tags: ["新闻稿", "山东", "泰山景色"] 
 theme: 'light'
 featured: true
 
@@ -21,7 +21,7 @@ meta:
 
 keywords: key1, key2, key3
 ---
-
+![远眺泰山。|wide](https://pic3.zhimg.com/v2-4fd114a54edeb5d48d10bf5b121eccb8_r.jpg)
 ## 概述
 - **中文名**：泰山风景名胜区
 - **地理位置**：山东省泰安市
@@ -41,9 +41,10 @@ keywords: key1, key2, key3
 泰山幽区指中路旅游区，是最富盛名的登山线路，自登山盘路的起始点一天门经中天门至南天门，全长5.5公里，几乎全为盘路，共有6290级台阶。
 ![泰山幽区。|big](https://so1.360tres.com/t019aaa21974cd10ff9.jpg)
 
-- **泰山旷区**：
-泰山旷区指西溪景区，是登山的西路，自大众桥起有一条盘山公路，可以直达中天门。除此之外，还有一条登山的盘路。
-![泰山旷区。|big](https://th.bing.com/th/id/OIP.WRGEa2NRrHf7MXhSx8I-_QHaFj?rs=1&pid=ImgDetMain)
+- **泰山日出**：
+一方的异彩，揭去了满天的睡意，唤醒了四隅的明霞——
+光明的神驹，在热奋地驰骋……
+![泰山日出。|big](https://file1.shop265.com/tk/2019/d088cf377fd9a9fd53f7d171d458fe8d.jpg)
 
 ## 自然资源
 
