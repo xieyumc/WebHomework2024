@@ -1,0 +1,52 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_LANG } from "../consts";
+const { primaryTitle } = Astro.props;
+const title = primaryTitle ? `${primaryTitle} - ${SITE_TITLE}` : SITE_TITLE;
+---
+
+<html class="js no-touch progressive-image no-reduced-motion progressive" lang={SITE_LANG} dir="ltr">
+<head>
+    <BaseHead title={title} description={SITE_DESCRIPTION} />
+    <style>
+        /* 登录框的CSS样式 */
+        .login-container {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container input,
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .login-container button {
+            background: #007aff;
+            color: white;
+            border: none;
+        }
+        .login-container button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="page-landing">
+<Header />
+<!-- 登录框的HTML -->
+<div class="login-container">
+    <h2>登录</h2>
+    <input type="text" id="username" placeholder="电子邮件或电话号码" />
+    <input type="password" id="password" placeholder="密码" />
+    <button type="submit">登录</button>
+</div>
+<Footer />
+</body>
+</html>
