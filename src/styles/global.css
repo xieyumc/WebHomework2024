@@ -7390,3 +7390,25 @@ blockquote {
 blockquote p {
   display: inline;
 }
+/*apple login*/
+
+
+.signin-form.fed-auth.hide-password {
+  max-height: 44px;
+  -webkit-transition: max-height .2s linear;
+  -o-transition: max-height .2s linear;
+  transition: max-height .2s linear
+}
+
+.signin-form.fed-auth.hide-password~.si-button.fed-ui {
+  top: .45em
+}
+
+.signin-form.fed-auth.hide-password .account-name input.form-textbox,.signin-form.fed-auth.hide-password .account-name input.form-textbox-input {
+  padding-right: 43px
+}
+
+.signin-form.fed-auth.hide-password .password .form-cell-wrapper {
+  height: 0;
+  overflow: hidden
+}
