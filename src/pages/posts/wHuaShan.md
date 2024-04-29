@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '奇险第一山--华山'
-pubDate: 2035-03-25
+pubDate: 2024-03-25
 description: '华山风景介绍'
 author: 's'
 cover:

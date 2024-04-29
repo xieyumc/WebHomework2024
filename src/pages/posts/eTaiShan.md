@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '天下第一山--泰山'
-pubDate: 2035-03-25
+pubDate: 2024-03-25
 description: '泰山风景介绍'
 author: 's'
 cover:
