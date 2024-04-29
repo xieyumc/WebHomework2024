@@ -9,7 +9,7 @@ cover:
     square: 'https://upload.wikimedia.org/wikipedia/commons/7/74/%E6%B3%B0%E5%B1%B1_%E5%8D%97%E5%A4%A9%E9%97%A8.jpg'
     alt: 'cover'
     
-tags: ["新闻稿", "山东", "泰山景色"] 
+tags: ["泰山", "山东", "山"] 
 theme: 'light'
 featured: true
 

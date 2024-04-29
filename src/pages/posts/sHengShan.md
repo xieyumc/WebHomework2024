@@ -9,7 +9,7 @@ cover:
     square: 'https://www.hengyang.gov.cn/lyj/lytp/zrbhq/201609/W020160901535841626246.jpg'
     alt: 'cover'
     
-tags: ["新闻稿", "湖南", "衡山景色"] 
+tags: ["衡山", "湖南", "山"] 
 theme: 'light'
 featured: true
 

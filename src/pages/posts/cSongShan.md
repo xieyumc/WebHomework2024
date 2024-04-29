@@ -9,7 +9,7 @@ cover:
     square: 'https://pic1.k1u.com/k1u/mb/d/file/20210617/01920d48469788827f8c968ffcfda064_836_10000.png'
     alt: 'cover'
     
-tags: ["新闻稿", "河南", "嵩山景色"] 
+tags: ["嵩山", "河南", "山"] 
 theme: 'light'
 featured: true
 

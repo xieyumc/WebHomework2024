@@ -9,7 +9,7 @@ cover:
     square: 'https://img2.baidu.com/it/u=3795876081,848637865&fm=253&fmt=auto&app=138&f=JPEG?'
     alt: 'cover'
     
-tags: ["新闻稿", "安徽", "黄山景色"] 
+tags: ["黄山", "安徽", "山"] 
 theme: 'dark'
 featured: true
 

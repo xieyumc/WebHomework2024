@@ -9,7 +9,7 @@ cover:
     square: 'https://img1.qunarzz.com/travel/d8/1709/a0/7f345f710c91b1b5.jpg_r_640x480x70_05b8076e.jpg'
     alt: 'cover'
     
-tags: ["新闻稿", "山西", "恒山景色"] 
+tags: ["恒山", "山西", "山"] 
 theme: 'light'
 featured: true
 
