@@ -1,13 +1,15 @@
-from django.shortcuts import render
-
-# Create your views here.
-# backend/app1/views.py
 from django.http import JsonResponse
 from django.views import View
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 class RegisterView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(RegisterView, self).dispatch(*args, **kwargs)
+
     def post(self, request):
         username = request.POST.get('username')
         email = request.POST.get('email')
