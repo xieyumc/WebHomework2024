@@ -1,77 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
-<!--<BaseLayout primaryTitle="注册">-->
-<!--    <section class="archive">-->
-<!--        <div class="section-content section-tag">-->
-<!--            <div class="login-container">-->
-<!--                <h2 class="login-header">创建账号</h2>-->
-<!--                <form class="login-form" id="registrationForm">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="email" name="email" placeholder="电子邮件地址" required>-->
-<!--                    </div>-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" name="username" placeholder="用户名" required>-->
-<!--                    </div>-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="password" name="password" placeholder="密码" required>-->
-<!--                    </div>-->
-<!--                    <input type="hidden" name="csrfmiddlewaretoken" id="csrfTokenInput">-->
-<!--                    <button type="submit" class="login-button">注册</button>-->
-<!--                </form>-->
-<!--                <p id="responseMessage"></p>-->
-<!--                <p>已经有账号了？ <a href="/login">登录</a></p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <script>-->
-<!--        document.addEventListener('DOMContentLoaded', function() {-->
-<!--            const form = document.getElementById('registrationForm');-->
-<!--            form.addEventListener('submit', function(event) {-->
-<!--                event.preventDefault();-->
-<!--                const formData = new FormData(form);-->
-<!--                const csrfToken = getCookie('csrftoken');-->
-<!--                formData.append('csrfmiddlewaretoken', csrfToken);-->
-
-<!--                fetch('http://localhost:8000/register/', {-->
-<!--                    method: 'POST',-->
-<!--                    body: formData,-->
-<!--                    headers: {-->
-<!--                        'X-CSRFToken': csrfToken-->
-<!--                    }-->
-<!--                })-->
-<!--                    .then(response => response.json())-->
-<!--                    .then(data => {-->
-<!--                        document.getElementById('responseMessage').innerText = data.message || '注册失败';-->
-<!--                    })-->
-<!--                    .catch(error => console.error('Error:', error));-->
-<!--            });-->
-
-<!--            function getCookie(name) {-->
-<!--                let cookieValue = null;-->
-<!--                if (document.cookie && document.cookie !== '') {-->
-<!--                    const cookies = document.cookie.split(';');-->
-<!--                    for (let i = 0; i < cookies.length; i++) {-->
-<!--                        const cookie = cookies[i].trim();-->
-<!--                        if (cookie.startsWith(name + '=')) {-->
-<!--                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));-->
-<!--                            break;-->
-<!--                        }-->
-<!--                    }-->
-<!--                }-->
-<!--                return cookieValue;-->
-<!--            }-->
-<!--        });-->
-<!--    </script>-->
-<!--</BaseLayout>-->
-
 <BaseLayout primaryTitle="注册">
     <section class="archive">
         <div class="section-content section-tag">
             <div class="login-container">
                 <h2 class="login-header">创建账号</h2>
-                <form class="login-form" action="http://localhost:8000/register/" method="post" id="registrationForm">
+                <form class="login-form" id="registrationForm">
                     <div class="input-group">
                         <input type="email" name="email" placeholder="电子邮件地址" required>
                     </div>
@@ -90,7 +25,33 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </section>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const getCookie = (name) => {
+            const form = document.getElementById('registrationForm');
+            const csrfToken = getCookie('csrftoken'); // 获取 CSRF 令牌
+            const csrfInput = document.getElementById('csrfTokenInput');
+            csrfInput.value = csrfToken; // 设置 CSRF 令牌到隐藏的 input 中，以防万一
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                // 确保将 CSRF 令牌添加到请求头
+                const response = await fetch('http://localhost:8000/register/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': csrfToken // 从 cookie 获取 CSRF 令牌并设置到请求头
+                    }
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message); // 显示成功消息
+                    window.location.href = '/login'; // 跳转到登录页面
+                } else {
+                    alert(result.error); // 显示错误消息
+                }
+            });
+
+            function getCookie(name) {
                 let cookieValue = null;
                 if (document.cookie && document.cookie !== '') {
                     const cookies = document.cookie.split(';');
@@ -103,12 +64,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     }
                 }
                 return cookieValue;
-            };
-
-            const csrfToken = getCookie('csrftoken');
-            const form = document.getElementById('registrationForm');
-            const csrfInput = document.getElementById('csrfTokenInput');
-            csrfInput.value = csrfToken;
+            }
         });
     </script>
 </BaseLayout>
