@@ -9,7 +9,7 @@ cover:
     square: 'https://www.bijingdi.com/uploadfile/2022/1215/20221215134852525.jpeg'
     alt: 'cover'
     
-tags: ["华山", "陕西", "山"] 
+tags: ["山川","华山", "陕西"] 
 theme: 'light'
 featured: true
 

@@ -9,7 +9,7 @@ cover:
     square: 'https://hzyly.com/upload/201908/26/201908261930373237.jpg'
     alt: 'cover'
     
-tags: ["西湖", "杭州", "湖"] 
+tags: ["湖泊","西湖", "杭州"] 
 theme: 'light'
 featured: true
 

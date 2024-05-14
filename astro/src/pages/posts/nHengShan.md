@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '五岳之北--恒山'
-pubDate: 2024-03-25
+title: '恒山'
+pubDate: 2025-01-25
 description: '恒山风景介绍'
 author: 's'
 cover:
@@ -9,7 +9,7 @@ cover:
     square: 'https://img1.qunarzz.com/travel/d8/1709/a0/7f345f710c91b1b5.jpg_r_640x480x70_05b8076e.jpg'
     alt: 'cover'
     
-tags: ["恒山", "山西", "山"] 
+tags: [ "山川","恒山", "山西"] 
 theme: 'light'
 featured: true
 

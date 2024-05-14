@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '大美黄山'
+title: '黄山'
 pubDate: 2024-9-2
 description: '黄山风景介绍'
 author: 'Chen Xiao'
@@ -9,7 +9,7 @@ cover:
     square: 'https://img2.baidu.com/it/u=3795876081,848637865&fm=253&fmt=auto&app=138&f=JPEG?'
     alt: 'cover'
     
-tags: ["黄山", "安徽", "山"] 
+tags: ["山川","黄山", "安徽"] 
 theme: 'dark'
 featured: true
 
