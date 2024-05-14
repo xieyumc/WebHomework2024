@@ -22,7 +22,8 @@ meta:
 keywords: key1, key2, key3
 ---
 
-![西湖 |wide](https://img.zcool.cn/community/0137c25d67ed86a80120526d1db237.jpg@1280w_1l_2o_100sh.jpg)
+
+![西湖 |wide](https://youimg1.c-ctrip.com/target/010551200087eekp5A498_D_10000_1200.jpg?proc=autoorient)
 
 
 # 西湖
