@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Astro/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "Astro/dist" }
+    },
+    {
+      "src": "Django/djangoProject/djangoProject/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb" }
+    }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "Django/djangoProject/djangoProject/wsgi.py" }
+  ]
+}

@@ -17,4 +17,9 @@
 		"rehype": "^12.0.1",
 		"unist-util-visit": "^4.1.2"
 	}
+
+	"scripts": {
+		"build": "astro build"
+	}
+
 }

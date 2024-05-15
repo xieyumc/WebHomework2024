@@ -24,6 +24,23 @@ keywords: key1, key2, key3
 
 # 以下是一些HDR图片
 
+实现方法，通过HDR静态视频循环播放，并隐藏进度条
+
+example：
+
+```html
+<video style="width:100%;height:auto" autoplay loop muted playsinline>
+    <source src="../../../HDR/1.mp4" type="video/mp4">
+</video>
+
+<video style="width:100%;height:auto" autoplay loop muted playsinline>
+    <source src="../../../HDR/2.mp4" type="video/mp4">
+</video>
+
+<video style="width:100%;height:auto" autoplay loop muted playsinline>
+    <source src="../../../HDR/3.mp4" type="video/mp4">
+</video> 
+```
 
 <video style="width:100%;height:auto" autoplay loop muted playsinline>
   <source src="../../../HDR/1.mp4" type="video/mp4">
