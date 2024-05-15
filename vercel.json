@@ -13,8 +13,10 @@
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "Django/djangoProject/wsgi.py" }
+    { "src": "/api/(.*)", "dest": "Django/djangoProject/wsgi.py" },
+    { "src": "/static/(.*)", "dest": "Django/djangoProject/static/$1" },
+    { "src": "/(.*)", "dest": "Astro/src/pages/index.html" }
   ]
+
 }
 
