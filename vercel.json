@@ -8,16 +8,12 @@
     },
     {
       "src": "Django/djangoProject/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "50mb" }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-
-    { "src": "/Astro/(.*)", "dest": "/Astro/dist/$1" },
-    { "src": "/Django/(.*)", "dest": "/Django/djangoProject/wsgi.py" }
-
+    { "src": "/api/(.*)", "dest": "/Django/djangoProject/wsgi.py" },
+    { "src": "/static/(.*)", "dest": "/Django/staticfiles/$1" },
+    { "src": "/(.*)", "dest": "/Astro/dist/index.html" }
   ]
-
 }
-
