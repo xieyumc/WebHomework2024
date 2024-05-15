@@ -7,13 +7,14 @@
       "config": { "distDir": "Astro/dist" }
     },
     {
-      "src": "Django/djangoProject/djangoProject/wsgi.py",
+      "src": "Django/djangoProject/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "50mb" }
     }
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "Django/djangoProject/djangoProject/wsgi.py" }
+    { "src": "/(.*)", "dest": "Django/djangoProject/wsgi.py" }
   ]
 }
+
