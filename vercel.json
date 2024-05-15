@@ -2,9 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "Astro/package.json",
+      "src": "astro/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "Astro/dist" }
+      "config": { "distDir": "astro/dist" }
     },
     {
       "src": "Django/djangoProject/wsgi.py",
@@ -14,6 +14,6 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/Django/djangoProject/wsgi.py" },
     { "src": "/static/(.*)", "dest": "/Django/staticfiles/$1" },
-    { "src": "/(.*)", "dest": "/Astro/dist/index.html" }
+    { "src": "/(.*)", "dest": "/astro/dist/index.html" }
   ]
 }
