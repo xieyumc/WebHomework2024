@@ -175,4 +175,6 @@ export default defineConfig({
   },
   integrations: [sitemap()],
   outDir: './dist',
+
+
 });

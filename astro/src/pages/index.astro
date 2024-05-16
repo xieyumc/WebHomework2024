@@ -2,8 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Tile from "../layouts/Tile.astro";
 import MoreTile from "../layouts/MoreTile.astro";
-const allPosts = await Astro.glob("../pages/posts/*.md");
-allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
+
+// 动态获取文章数据
+let allPosts = [];
+
+const fetchPosts = async () => {
+  const response = await fetch('http://localhost:8000/api/posts/');
+  const data = await response.json();
+  allPosts = data.map(post => ({
+    url: `/posts/${post.id}`,
+    frontmatter: {
+      title: post.title,
+      pubDate: post.pub_date,
+      tags: post.tags ? post.tags.split(",") : [],
+      cover: { url: post.cover_url || '' },
+    },
+    content: post.content,
+  }));
+  allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
+};
+
+await fetchPosts();
 ---
 
 <BaseLayout>
@@ -15,28 +34,28 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
         {
           // tile-hero
           allPosts.slice(0, 1).map((post) => {
-            return (
+          return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="1" />
-            );
-          })
+          );
+        })
         }
 
         {
           // tile-2up
           allPosts.slice(1, 5).map((post) => {
-            return (
+          return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="2" />
-            );
-          })
+          );
+        })
         }
 
         {
           // tile-3up
           allPosts.slice(5, 11).map((post) => {
-            return (
+          return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="3" />
-            );
-          })
+          );
+        })
         }
       </ul>
     </div>
@@ -45,17 +64,17 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
   <section class="more-from-newsroom">
     <div class="section-content">
       <h2 class="section-head">更多文章</h2>
-   
+
 
       <ul role="list" class="section-tiles">
 
         {
           // tile-2up
           allPosts.slice(0, 6).map((post) => {
-            return (
+          return (
               <MoreTile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.square !== "" ? post.frontmatter.cover.square : post.frontmatter.cover.url} />
-            );
-          })
+          );
+        })
         }
       </ul>
       <div class="view-archive-wrapper">

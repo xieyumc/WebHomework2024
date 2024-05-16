@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import fetch from 'node-fetch';
+
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+    // 从Django API获取所有文章
+    const response = await fetch('http://localhost:8000/api/posts/');
+    const posts = await response.json();
+
+    return posts.map(post => ({
+        params: { id: post.id.toString() }
+    }));
+}
+
+const { id } = Astro.params;
+
+// 获取单个文章数据
+let post = {};
+
+const fetchPost = async () => {
+    const response = await fetch(`http://localhost:8000/api/posts/${id}/`);
+    post = await response.json();
+};
+
+await fetchPost();
+---
+
+<BaseLayout>
+    <article>
+        <h1>{post.title}</h1>
+        <p>{new Date(post.pub_date).toLocaleDateString()}</p>
+        <div innerHTML={post.content}></div>
+
+    </article>
+</BaseLayout>
