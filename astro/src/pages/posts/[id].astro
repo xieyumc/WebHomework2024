@@ -36,9 +36,6 @@ const contentHtml = marked(post.content || '');
 <BaseLayout>
     <article>
         <h1>{post.title}</h1>
-        <p>{new Date(post.pub_date).toLocaleDateString()}</p>
-
-        <!-- 渲染Markdown转换后的HTML内容 -->
         <div set:html={contentHtml} />
     </article>
 </BaseLayout>
