@@ -7386,7 +7386,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 section.archive {
   min-height: 78vh;
-  background-color: #f2f2f2;
+  background-color: var(  --background-color);
   margin-top: 0;
 }
 
@@ -7403,7 +7403,7 @@ section.archive {
 }
 
 .archive-tag {
-  background: white;
+  background:var( --bg-primary);
   padding: 1em 1em;
   border-radius: 8px;
   margin: 10px 0px;
