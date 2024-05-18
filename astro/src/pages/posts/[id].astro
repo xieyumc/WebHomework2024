@@ -60,7 +60,7 @@ const contentHtml = marked(post.content || '');
 
 <MarkdownPost frontmatter={frontmatter}>
 
-
+    {post.featured && (
     <style>
         .container {
             position: relative;
@@ -125,6 +125,13 @@ const contentHtml = marked(post.content || '');
         </div>
     </div>
 
+
+
+            <div class="tertiarynav component">
+                <div class="component-content"></div>
+            </div>
+    )}
+
     <div class="tagssheet component">
         <div class="component-content">
             {post.tags.map(tag => (
@@ -134,14 +141,6 @@ const contentHtml = marked(post.content || '');
             ))}
         </div>
     </div>
-
-
-    {post.featured && (
-            <div class="tertiarynav component">
-                <div class="component-content"></div>
-            </div>
-    )}
-
     <div class="TextMain" set:html={contentHtml}/>
     <script>
         if (post.featured) {
