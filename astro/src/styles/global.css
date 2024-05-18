@@ -1,5 +1,8 @@
 :root {
   --black: #1d1d1f;
+  --tile__headline:#1d1d1f;
+  --hText:#1d1d1f;
+  --background-color:#fff;
   --bg-primary: #f5f5f7;
   --gray-primary: #f2f2f2;
   --gray-text: #515154;
@@ -12,12 +15,29 @@
   --footer-pipe-color: #86868b;
   --footer-directory-title-color: #1d1d1f;
   --footer-directory-title-color-hover: #000;
-
-
-
 }
 
-
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #e3e3e5;
+    --tile__headline:#f5f5f7;
+    --hText:#F5F5F7;;
+    --background-color:#000000;
+    --tureblack:black;
+    --bg-primary: #141414;
+    --gray-primary: #4a4a4d;
+    --gray-text: #e3e3e5;
+    --primary: #9d65ff; /* 深色模式下的紫色更亮一些 */
+    --blue: #1a73e8;
+    --footer-background: #1D1D1F;
+    --footer-border-color: #424245;
+    --footer-text-color: #c7c7cc;
+    --footer-link-color: #a1a1a6;
+    --footer-pipe-color: #5e5e62;
+    --footer-directory-title-color: #e3e3e5;
+    --footer-directory-title-color-hover: #ffffff;
+  }
+}
 
 *,
 ::before,
@@ -27,14 +47,15 @@
 
 html {
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  padding: 0
+  padding: 0;
+  background-color: var(--bg-primary); /* 应用背景色 */
+  color: var(--gray-text); /* 应用文字色 */
 }
-
 .TextMain{
 
   margin-left: auto;
@@ -214,7 +235,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  color: #1d1d1f;
+  color: var(--hText);
 
   font-size: 24px;
   line-height: 1.16667;
@@ -524,7 +545,7 @@ a.nav-title:hover {
 }
 
 .tile {
-  background-color: #fff;
+  background-color: var(--background-color); ;
   display: flex;
   border-radius: 16px;
   overflow: hidden;
@@ -555,7 +576,7 @@ a.nav-title:hover {
 }
 
 .tile__headline {
-  color: #1d1d1f;
+  color: var(--tile__headline);
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -792,12 +813,11 @@ html.js .tile.large-loaded .image {
 .video-ready .image {
   display: none
 }
-
 .everydayfeed {
   padding-bottom: 80px;
   overflow: hidden;
-  background-color: #f5f5f7;
-  margin-top: 0
+  background-color: var(--bg-primary);  /* 使用变量替换固定颜色 */
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -883,7 +903,7 @@ html.js .tile.large-loaded .image {
 .more-from-newsroom {
   padding-top: 10px;
   padding-bottom: 80px;
-  background-color: #fff;
+  background-color: var(--bg-primary);
   overflow: hidden
 }
 
