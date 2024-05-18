@@ -50,7 +50,8 @@ const frontmatter = {
     featured: post.featured || false,
     tags: post.tags.split(','),
     author: post.author,
-    theme: post.theme || 'light'
+    theme: post.theme || 'light',
+    cover: { url: post.cover_url || '' },
 };
 post.tags = post.tags.split(',')
 // 解析Markdown内容为HTML
@@ -58,6 +59,7 @@ const contentHtml = marked(post.content || '');
 ---
 
 <MarkdownPost frontmatter={frontmatter}>
+
 
 
     <!--<div class="featured-header">-->
@@ -72,16 +74,29 @@ const contentHtml = marked(post.content || '');
             </div>
         </div>
     <!--</div>-->
+    {post.featured && (
+            <div id="image-container" class="featured">
+                <img class="imgwide" src={post.cover_url} alt="image description"/>
+            </div>
+            <div class="tertiarynav component">
+                 <div class="component-content"></div>
+            </div>
+    )}
 
 
-    <!--<div class="tertiarynav component">-->
-    <!--    <div class="component-content"></div>-->
-    <!--</div>-->
 
 
 
 
-    <div class="component-content" set:html={contentHtml}/>
+
+
+
+    <div class="TextMain" set:html={contentHtml}/>
+    <script>
+        if (post.featured) {
+            document.getElementById('image-container').classList.add('featured');
+        }
+    </script>
 
 
 </MarkdownPost>

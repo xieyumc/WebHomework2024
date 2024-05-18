@@ -12,6 +12,9 @@
   --footer-pipe-color: #86868b;
   --footer-directory-title-color: #1d1d1f;
   --footer-directory-title-color-hover: #000;
+
+
+
 }
 
 
@@ -32,6 +35,28 @@ body {
   padding: 0
 }
 
+.TextMain{
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 653px;
+
+  margin-top: 44px;
+  margin-bottom: 44px;
+
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+
+
+  font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 1.470588;
+  font-weight: 400;
+  letter-spacing: .012em;
+
+
+}
 .img-container {
 
     display: flex;
@@ -40,11 +65,21 @@ body {
     margin: 50px 0;
 
 }
+.imgwide{
+  width: 100%;
+}
+
+.imgwide {
+  display: none; /* 默认不显示 */
+}
+.featured .imgwide {
+  display: block; /* 当容器有 'featured' 类时显示 */
+}
 
 .imgbig {
-    width: 150%;
+  width: 150%;
     height: auto;
-     border-radius: 10px; /* 圆角半径，可以根据需要调整 */
+    border-radius: 10px; /* 圆角半径，可以根据需要调整 */
 }
 
 .imgsmall{
@@ -55,18 +90,6 @@ body {
 
 }
 
-
-/*@media only screen and (max-width: 1068px) {*/
-/*  .imgbig {*/
-/*    width: 692px*/
-/*  }*/
-/*}*/
-
-/*@media only screen and (max-width: 734px) {*/
-/*  .imgbig {*/
-/*    width: 100%*/
-/*  }*/
-/*}*/
 
 ul,
 ol,
@@ -191,7 +214,15 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  color: #1d1d1f
+  color: #1d1d1f;
+
+  font-size: 24px;
+  line-height: 1.16667;
+  font-weight: 700;
+  letter-spacing: .009em;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin-bottom: 16px;
+  margin-top: 52px
 }
 
 h1 img,
@@ -5678,7 +5709,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component-content {
   margin-left: auto;
   margin-right: auto;
-  width: 653px
+  width: 653px;
 }
 
 @media only screen and (max-width: 1068px) {

@@ -60,7 +60,7 @@ keywords: key1, key2, key3
 
 - **曲院风荷**：位于西湖西北角，素以湖景、荷景著称。
 
-![曲院风荷 |big](https://img.zcool.cn/community/01a9e35c0a8374a80121ab5df058bc.jpg@1280w_1l_2o_100sh.jpg)
+![曲院风荷 |inline](https://img.zcool.cn/community/01a9e35c0a8374a80121ab5df058bc.jpg@1280w_1l_2o_100sh.jpg)
 
 - **平湖秋月**：观景点位于白堤西端，背倚孤山，面临外湖。
 
