@@ -26,7 +26,7 @@
     --tureblack:black;
     --bg-primary: #141414;
     --gray-primary: #4a4a4d;
-    --gray-text: #e3e3e5;
+    --gray-text: grey;
     --primary: #9d65ff; /* 深色模式下的紫色更亮一些 */
     --blue: #1a73e8;
     --footer-background: #1D1D1F;
@@ -5064,8 +5064,8 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   border: 2px solid;
   padding: 10px 24px 9px;
-  border-color: #1d1d1f;
-  color: #161617;
+  border-color: var(--gray-text);
+  color: var(--hText);
 }
 
 .cta-primary-light:visited {
