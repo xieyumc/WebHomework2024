@@ -51,7 +51,7 @@ const frontmatter = {
     tags: post.tags.split(','),
     author: post.author,
     theme: post.theme || 'light',
-    cover: { url: post.cover_url || '' },
+    cover: {url: post.cover_url || ''},
 };
 post.tags = post.tags.split(',')
 // 解析Markdown内容为HTML
@@ -61,35 +61,86 @@ const contentHtml = marked(post.content || '');
 <MarkdownPost frontmatter={frontmatter}>
 
 
+    <style>
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 100vh;
+        }
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 半透明背景层 */
+            z-index: 1;
+        }
+        .centered-text, .sub-text {
+            position: absolute;
+            z-index: 2; /* 确保文字在背景层之上 */
+        }
+        .centered-text {
+            top: 36%;
+            left: 50%;
+            transform: translate(-50%, -50%);
 
-    <!--<div class="featured-header">-->
+            font-size: 64px;
+            font-weight: 700;
+            font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            line-height: 1.09375;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+        .sub-text {
+            top: 46%;
 
-        <div class="tagssheet component">
-            <div class="component-content">
-                {post.tags.map(tag => (
-                        <a href={`/tags/${encodeURIComponent(tag.trim())}`} class="tag">
-                            {tag.trim()}
-                        </a>
-                ))}
-            </div>
+            left: 50%;
+            transform: translateX(-50%);
+
+
+            margin-inline-start: auto;
+            margin-inline-end: auto;
+            font-size: 24px;
+            line-height: 1.1666666667;
+            font-weight: 600;
+            letter-spacing: .009em;
+            font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            width: 66.6666666667%;
+        }
+    </style>
+
+    <div class="container">
+        <img src={post.cover_url}
+             alt="Background Image" class="background-image">
+        <div class="centered-text">{post.title}</div>
+        <div class="sub-text">{post.description}
         </div>
-    <!--</div>-->
+    </div>
+
+    <div class="tagssheet component">
+        <div class="component-content">
+            {post.tags.map(tag => (
+                    <a href={`/tags/${encodeURIComponent(tag.trim())}`} class="tag">
+                        {tag.trim()}
+                    </a>
+            ))}
+        </div>
+    </div>
+
+
     {post.featured && (
-            <div id="image-container" class="featured">
-                <img class="imgwide" src={post.cover_url} alt="image description"/>
-            </div>
             <div class="tertiarynav component">
-                 <div class="component-content"></div>
+                <div class="component-content"></div>
             </div>
     )}
-
-
-
-
-
-
-
-
 
     <div class="TextMain" set:html={contentHtml}/>
     <script>
