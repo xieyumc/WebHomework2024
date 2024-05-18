@@ -3,7 +3,7 @@ layout: '../../layouts/MarkdownPost.astro'
 title: '黄山'
 pubDate: 2024-9-2
 description: '黄山风景介绍'
-author: 'Chen Xiao'
+author: 'chenxiao'
 cover:
     url: 'https://5b0988e595225.cdn.sohucs.com/images/20190926/eb3422358c4f4812aecdd5513d72cae5.jpeg'
     square: 'https://img2.baidu.com/it/u=3795876081,848637865&fm=253&fmt=auto&app=138&f=JPEG?'
@@ -39,9 +39,6 @@ keywords: key1, key2, key3
 - **适宜游玩季节**：四季皆宜
 
 ## 主要景点
-- **松谷景区**：
-
-![松谷景区。|inline](https://i.pinimg.com/564x/1a/e7/16/1ae716e852b586a62dda846f09cfec05.jpg)
 
 - **玉屏景区**：
 以玉屏楼为中心，莲花峰和天都峰为主体，驰名中外的迎客松挺立在此。
