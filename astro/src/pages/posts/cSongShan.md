@@ -15,7 +15,7 @@ featured: true
 
 meta:
  - name: author
-   content: 作者是我
+   content:  作者是我
  - name: keywords
    content: key3, key4
 
