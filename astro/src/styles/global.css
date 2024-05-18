@@ -15,6 +15,7 @@
 }
 
 
+
 *,
 ::before,
 ::after {
@@ -30,6 +31,42 @@ body {
   margin: 0;
   padding: 0
 }
+
+.img-container {
+
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    margin: 50px 0;
+
+}
+
+.imgbig {
+    width: 150%;
+    height: auto;
+     border-radius: 10px; /* 圆角半径，可以根据需要调整 */
+}
+
+.imgsmall{
+
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* 圆角半径，可以根据需要调整 */
+
+}
+
+
+/*@media only screen and (max-width: 1068px) {*/
+/*  .imgbig {*/
+/*    width: 692px*/
+/*  }*/
+/*}*/
+
+/*@media only screen and (max-width: 734px) {*/
+/*  .imgbig {*/
+/*    width: 100%*/
+/*  }*/
+/*}*/
 
 ul,
 ol,

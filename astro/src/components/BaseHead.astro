@@ -14,7 +14,7 @@ const description = frontmatter
     : Astro.props.description;
 const author = frontmatter ? frontmatter.author : SITE_AUTHOR;
 const tags = frontmatter ? frontmatter.tags.join() : "";
-const cover = frontmatter ? frontmatter.cover.url : image;
+const cover = frontmatter && frontmatter.cover && frontmatter.cover.url ? frontmatter.cover.url : image;
 const date = new Date();
 const isoNow = date.toISOString();
 ---

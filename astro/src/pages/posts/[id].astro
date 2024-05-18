@@ -1,8 +1,10 @@
 ---
-// 引入布局和必要的库
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import fetch from 'node-fetch';
-import { marked } from 'marked';
+import MarkdownPost from "../../../src/layouts/MarkdownPostFor[id].astro";
+import {marked} from 'marked';
+import Footer from "../../../src/components/Footer.astro";
+import Header from "../../../src/components/Header.astro";
+import BaseHead from "../../../src/components/BaseHead.astro";
+import BaseHead from "../../../src/components/Navigation.astro";
 
 // 获取所有文章的路径，以用于生成静态路径
 export async function getStaticPaths() {
@@ -10,32 +12,76 @@ export async function getStaticPaths() {
     const posts = await response.json();
 
     return posts.map(post => ({
-        params: { id: post.id.toString() }
+        params: {id: post.id.toString()}
     }));
 }
 
 // 从Astro.params中获取当前文章的ID
-const { id } = Astro.params;
+const {id} = Astro.params;
 
 // 初始化文章对象
 let post = {};
+
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // 月份从0开始，需要加1
+    const day = date.getDate();
+    return `${year} 年 ${month} 月 ${day} 日`;
+};
 
 // 获取单个文章的详细信息
 const fetchPost = async () => {
     const response = await fetch(`http://localhost:8000/api/posts/${id}/`);
     post = await response.json();
+    post.formatted_pub_date = formatDate(post.pub_date);
+
+
 };
 
 // 执行获取文章详情的函数
 await fetchPost();
 
+// 准备 frontmatter 对象
+const frontmatter = {
+    title: post.title,
+    pubDate: post.pub_date,
+    description: post.description,
+    featured: post.featured || false,
+    tags: post.tags.split(','),
+    author: post.author,
+    theme: post.theme || 'light'
+};
+post.tags = post.tags.split(',')
 // 解析Markdown内容为HTML
 const contentHtml = marked(post.content || '');
 ---
 
-<BaseLayout>
-    <article>
-        <h1>{post.title}</h1>
-        <div set:html={contentHtml} />
-    </article>
-</BaseLayout>
+<MarkdownPost frontmatter={frontmatter}>
+
+
+    <!--<div class="featured-header">-->
+
+        <div class="tagssheet component">
+            <div class="component-content">
+                {post.tags.map(tag => (
+                        <a href={`/tags/${encodeURIComponent(tag.trim())}`} class="tag">
+                            {tag.trim()}
+                        </a>
+                ))}
+            </div>
+        </div>
+    <!--</div>-->
+
+
+    <!--<div class="tertiarynav component">-->
+    <!--    <div class="component-content"></div>-->
+    <!--</div>-->
+
+
+
+
+    <div class="component-content" set:html={contentHtml}/>
+
+
+</MarkdownPost>
