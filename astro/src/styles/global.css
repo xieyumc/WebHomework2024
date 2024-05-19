@@ -7395,6 +7395,7 @@ section.archive {
 }
 
 .tag-header {
+  margin-top: 0px;
   font-size: 24px;
   line-height: 1.16667;
   font-weight: 700;
@@ -7410,7 +7411,7 @@ section.archive {
 }
 
 a.tag_post-content {
-  color: #1d1d1f;
+  color: var(--hText);
   letter-spacing: 0.011em;
   font-size: 17px;
 }
