@@ -7501,3 +7501,58 @@ blockquote p {
   height: 0;
   overflow: hidden
 }
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 100vh;
+}
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 半透明背景层 */
+  z-index: 1;
+}
+.centered-text, .sub-text {
+  position: absolute;
+  z-index: 1; /* 确保文字在背景层之上 */
+}
+.centered-text {
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 64px;
+  font-weight: 700;
+  font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.09375;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.sub-text {
+  top: 46%;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  font-size: 24px;
+  line-height: 1.1666666667;
+  font-weight: 600;
+  letter-spacing: .009em;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  width: 66.6666666667%;
+}
