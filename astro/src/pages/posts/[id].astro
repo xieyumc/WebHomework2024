@@ -73,9 +73,9 @@ const contentHtml = marked(post.content || '');
             function isElementInViewport(el) {
                 const rect = el.getBoundingClientRect();
                 return (
-                    rect.top >= 0 &&
+                    rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom > 0 &&
                     rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
                 );
             }
@@ -88,8 +88,21 @@ const contentHtml = marked(post.content || '');
                 });
             }
 
-            window.addEventListener('scroll', checkAnimation);
-            window.addEventListener('resize', checkAnimation);
+            function onScrollOrResize() {
+                checkAnimation();
+            }
+
+            window.addEventListener('scroll', onScrollOrResize);
+            window.addEventListener('resize', onScrollOrResize);
+
+            // 确保图片加载后立即检查
+            imgContainers.forEach(function(container) {
+                const img = container.querySelector('img');
+                if (img) {
+                    img.addEventListener('load', checkAnimation);
+                }
+            });
+
             checkAnimation(); // 初始检查
         });
     </script>
