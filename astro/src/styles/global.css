@@ -87,6 +87,8 @@ body {
   transform: translateY(50px); /* 初始状态下移 */
   transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); /* 平滑的非线性动画效果 */
 
+
+
 }
 
 .img-container.animate {

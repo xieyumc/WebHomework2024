@@ -1,7 +1,7 @@
-export const SITE_TITLE = `山水乾坤`;
+export const SITE_TITLE = `天际水域`;
 export const SITE_DESCRIPTION = 'Site Description';
 export const SITE_EMAIL = 'xieyumc@gmail.com'
-export const SITE_NAME = '山水乾坤';
+export const SITE_NAME = '天际水域';
 export const SITE_URL = "https://web-homework2024.vercel.app";
 export const SITE_LANG = "zh-CN";
 
