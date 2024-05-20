@@ -1,46 +1,34 @@
 ---
+// 导入所需的模块和组件
 import MarkdownPost from "../../../src/layouts/MarkdownPostFor[id].astro";
-import {marked} from 'marked';
-import Footer from "../../../src/components/Footer.astro";
-import Header from "../../../src/components/Header.astro";
-import BaseHead from "../../../src/components/BaseHead.astro";
-import BaseHead from "../../../src/components/Navigation.astro";
+import { marked } from 'marked';
 
-// 获取所有文章的路径，以用于生成静态路径
-export async function getStaticPaths() {
-    const response = await fetch('http://localhost:8000/api/posts/');
-    const posts = await response.json();
-
-    return posts.map(post => ({
-        params: {id: post.id.toString()}
-    }));
-}
-
-// 从Astro.params中获取当前文章的ID
-const {id} = Astro.params;
+// 获取文章 ID
+const { id } = Astro.params;
 
 // 初始化文章对象
 let post = {};
 
+// 格式化日期函数
 const formatDate = (dateString) => {
     const date = new Date(dateString);
     const year = date.getFullYear();
-    const month = date.getMonth() + 1; // 月份从0开始，需要加1
+    const month = date.getMonth() + 1;
     const day = date.getDate();
     return `${year} 年 ${month} 月 ${day} 日`;
 };
 
-// 获取单个文章的详细信息
-const fetchPost = async () => {
+// 异步获取文章详情函数
+const fetchPost = async (id) => {
     const response = await fetch(`http://localhost:8000/api/posts/${id}/`);
-    post = await response.json();
-    post.formatted_pub_date = formatDate(post.pub_date);
-
-
+    return await response.json();
 };
 
-// 执行获取文章详情的函数
-await fetchPost();
+// 在服务器端获取文章详情
+if (import.meta.env.SSR) {
+    post = await fetchPost(id);
+    post.formatted_pub_date = formatDate(post.pub_date);
+}
 
 // 准备 frontmatter 对象
 const frontmatter = {
@@ -48,38 +36,27 @@ const frontmatter = {
     pubDate: post.pub_date,
     description: post.description,
     featured: post.featured || false,
-    tags: post.tags.split(','),
+    tags: post.tags ? post.tags.split(',') : [],
     author: post.author,
     theme: post.theme || 'light',
-    cover: {url: post.cover_url || ''},
+    cover: { url: post.cover_url || '' },
 };
-post.tags = post.tags.split(',')
-// 解析Markdown内容为HTML
+
 const contentHtml = marked(post.content || '');
 ---
 
 <MarkdownPost frontmatter={frontmatter}>
-
     {post.featured && (
-
-    <div class="container">
-        <img src={post.cover_url}
-             alt="Background Image" class="background-image">
-        <div class="centered-text">{post.title}</div>
-        <div class="sub-text">{post.description}
-        </div>
-    </div>
-
-
-
-            <div class="tertiarynav component">
-                <div class="component-content"></div>
+            <div class="container">
+                <img src={post.cover_url} alt="Background Image" class="background-image">
+                <div class="centered-text">{post.title}</div>
+                <div class="sub-text">{post.description}</div>
             </div>
     )}
 
     <div class="tagssheet component">
         <div class="component-content">
-            {post.tags.map(tag => (
+            {frontmatter.tags.map(tag => (
                     <a href={`/tags/${encodeURIComponent(tag.trim())}`} class="tag">
                         {tag.trim()}
                     </a>
@@ -92,6 +69,4 @@ const contentHtml = marked(post.content || '');
             document.getElementById('image-container').classList.add('featured');
         }
     </script>
-
-
 </MarkdownPost>

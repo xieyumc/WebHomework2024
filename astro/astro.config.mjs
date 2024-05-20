@@ -173,6 +173,7 @@ export default defineConfig({
     rehypePlugins: pipeline(),
     syntaxHighlight: 'prism',
   },
+  output: 'server',
   integrations: [sitemap()],
   outDir: './dist',
 
