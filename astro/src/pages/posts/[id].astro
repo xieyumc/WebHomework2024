@@ -47,7 +47,7 @@ const contentHtml = marked(post.content || '');
 
 <MarkdownPost frontmatter={frontmatter}>
     {post.featured && (
-            <div class="container">
+            <div class="container body-copy-wide nr-scroll-animation nr-scroll-animation--on">
                 <img src={post.cover_url} alt="Background Image" class="background-image">
                 <div class="centered-text">{post.title}</div>
                 <div class="sub-text">{post.description}</div>
@@ -63,10 +63,34 @@ const contentHtml = marked(post.content || '');
             ))}
         </div>
     </div>
-    <div class="TextMain" set:html={contentHtml}/>
+
+    <div class="TextMain" set:html={contentHtml} />
+
     <script>
-        if (post.featured) {
-            document.getElementById('image-container').classList.add('featured');
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const imgContainers = document.querySelectorAll('.img-container');
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function checkAnimation() {
+                imgContainers.forEach(function(container) {
+                    if (isElementInViewport(container)) {
+                        container.classList.add('animate');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkAnimation);
+            window.addEventListener('resize', checkAnimation);
+            checkAnimation(); // 初始检查
+        });
     </script>
 </MarkdownPost>

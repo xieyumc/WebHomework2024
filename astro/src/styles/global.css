@@ -79,12 +79,18 @@ body {
 
 }
 .img-container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  margin: 50px 0;
+  opacity: 0; /* 初始状态隐藏 */
+  transform: translateY(50px); /* 初始状态下移 */
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); /* 平滑的非线性动画效果 */
+}
 
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
-    margin: 50px 0;
-
+.img-container.animate {
+  opacity: 1; /* 滚动到时显示 */
+  transform: translateY(0); /* 上移至原位置 */
 }
 .imgwide{
   width: 100%;
