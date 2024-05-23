@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+
+  backend:
+    build: ./Django
+    container_name: backend
+    ports:
+      - "8000:8000"
+    networks:
+      - my_network
+
+  web:
+    build: ./astro
+    container_name: web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - my_network
+    environment:
+      - API_URL=http://backend:8000/api/posts/
+
+
+
+networks:
+  my_network:
+    driver: bridge

@@ -5,10 +5,10 @@ import ArchivePostList from "../layouts/ArchivePostList.astro";
 let allPosts = [];
 const tags = ["山川", "湖泊", "江河", "瀑布"];
 let posts = [];
-
+const apiUrl = process.env.API_URL || 'http://127.0.0.1:8000/api/posts/';
 // Fetch posts data from the Django backend
 const fetchPosts = async () => {
-  const response = await fetch('http://localhost:8000/api/posts/');
+  const response = await fetch(`${apiUrl}`);
   const data = await response.json();
   allPosts = data.map(post => ({
     url: `/posts/${post.id}`,

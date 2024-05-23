@@ -174,6 +174,7 @@ export default defineConfig({
     syntaxHighlight: 'prism',
   },
   output: 'server',
+  // adapter: node(),
   integrations: [sitemap()],
   outDir: './dist',
 

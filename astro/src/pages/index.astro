@@ -2,12 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Tile from "../layouts/Tile.astro";
 import MoreTile from "../layouts/MoreTile.astro";
-
 // 动态获取文章数据
 let allPosts = [];
 
+const apiUrl = process.env.API_URL || 'http://127.0.0.1:8000/api/posts/';
+
 const fetchPosts = async () => {
-  const response = await fetch('http://localhost:8000/api/posts/');
+
+  const response = await fetch(`${apiUrl}`);
   const data = await response.json();
   allPosts = data.map(post => ({
     url: `/posts/${post.id}`,

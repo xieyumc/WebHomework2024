@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@astrojs/rss": "^2.1.1",
 		"@astrojs/sitemap": "^1.2.1",
+
 		"astro": "^2.0.11",
 		"fetch": "^1.1.0",
 		"marked": "^12.0.2",
