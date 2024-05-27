@@ -28,3 +28,33 @@ services:
 networks:
   my_network:
     driver: bridge
+
+
+#services:
+#
+#
+#  backend:
+#    image: mona233/webhomework2024-backend:1.0
+#    container_name: backend
+#    ports:
+#      - "8000:8000"
+#    networks:
+#      - my_network
+#
+#  web:
+#    image: mona233/webhomework2024-web:1.0
+#    container_name: web
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - backend
+#    networks:
+#      - my_network
+#    environment:
+#      - API_URL=http://backend:8000/api/posts/
+#
+#
+#
+#networks:
+#  my_network:
+#    driver: bridge
