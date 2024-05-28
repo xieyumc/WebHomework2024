@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +33,25 @@ SECRET_KEY = "django-insecure-x=40hgjq^p7(nxqr-n(mvvxfgevw-gtz&2ap4v30%^g)5v*&1_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# 获取项目根目录
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# .env 文件的路径
+env_path = BASE_DIR / '.env'
+
+# 加载 .env 文件
+load_dotenv(dotenv_path=env_path)
+
+# 获取环境变量
+PUBLIC_IP = os.getenv('PUBLIC_IP')
+
+# 其他设置
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
+
+# 如果 .env 文件中定义了 PUBLIC_IP，则将其添加到 ALLOWED_HOSTS
+if PUBLIC_IP:
+    ALLOWED_HOSTS.append(PUBLIC_IP)
+
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
