@@ -57,10 +57,10 @@ body {
   color: var(--gray-text); /* 应用文字色 */
 }
 .TextMain{
-
   margin-left: auto;
   margin-right: auto;
-  width: 653px;
+  width: 100%;
+  max-width: 653px;
 
   margin-top: 44px;
   margin-bottom: 44px;
@@ -68,15 +68,19 @@ body {
   margin-inline-start: auto;
   margin-inline-end: auto;
 
-
   font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 17px;
   font-style: normal;
   line-height: 1.470588;
   font-weight: 400;
   letter-spacing: .012em;
+}
 
-
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .TextMain {
+    width: 80%;
+  }
 }
 .img-container {
   display: flex;
