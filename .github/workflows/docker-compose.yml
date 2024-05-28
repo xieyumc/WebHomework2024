@@ -52,7 +52,7 @@ jobs:
 
       - name: Build and push nginx service
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx:latest -f ./nginx.Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx:latest -f ./nginx.conf
           docker push ${{ secrets.DOCKER_USERNAME }}/nginx:latest
 
       - name: Start Docker Compose services
