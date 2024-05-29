@@ -69,8 +69,5 @@ jobs:
 
       - name: Run tests
         run: |
-          # 这里可以添加你的测试命令，例如：
-          # curl http://localhost:3000 以验证 web 服务是否正常运行
           curl -f http://localhost:3000
           curl -f http://localhost:8000/api/posts/
-          # 根据你的测试需求添加更多测试命令
