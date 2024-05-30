@@ -7558,7 +7558,7 @@ blockquote p {
   animation-delay: 0.5s; /* 动画延迟，给子文本动画 */
 }
 .sub-text {
-  top: 40%;
+  top: 45%;
   margin-inline-start: auto;
   margin-inline-end: auto;
   font-size: 24px;
