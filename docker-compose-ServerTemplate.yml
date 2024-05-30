@@ -10,6 +10,9 @@ services:
       - my_network
     environment:
       - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,backend,SERVER_NAME
+    volumes:
+      - sqlite_db_data:/code/db.sqlite3
+
 
   web:
     image: mona233/web:latest
@@ -47,3 +50,6 @@ services:
 networks:
   my_network:
     driver: bridge
+
+volumes:
+  sqlite_db_data:
