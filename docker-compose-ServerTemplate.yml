@@ -9,7 +9,7 @@ services:
     networks:
       - my_network
     environment:
-      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,backend,servername
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,backend,SERVER_NAME
 
   web:
     image: mona233/web:latest
@@ -42,7 +42,7 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 backend web
+    command: --interval 30 backend web nginx
 
 networks:
   my_network:
