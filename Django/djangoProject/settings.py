@@ -33,8 +33,11 @@ SECRET_KEY = "django-insecure-x=40hgjq^p7(nxqr-n(mvvxfgevw-gtz&2ap4v30%^g)5v*&1_
 DEBUG = True
 
 
-# 其他设置
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
+
+
+
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,backend').split(',')
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
 
 
 AUTH_USER_MODEL = 'user.CustomUser'
