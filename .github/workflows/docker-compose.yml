@@ -39,55 +39,62 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build multi-arch backend service image
+      # 构建单架构后端服务镜像用于本地测试
+      - name: Build backend service image for testing
+        run: docker build -t backend:test -f ./Django/Dockerfile ./Django
+
+      # 构建单架构前端服务镜像用于本地测试
+      - name: Build web service image for testing
+        run: docker build -t web:test -f ./astro/Dockerfile ./astro
+
+      # 构建单架构 Nginx 服务镜像用于本地测试
+      - name: Build nginx service image for testing
+        run: docker build -t nginx:test -f ./nginx.Dockerfile .
+
+      # 启动 Docker Compose 服务用于测试
+      - name: Start Docker Compose services for testing
+        run: docker-compose up -d
+
+      - name: Wait for services to be up
+        run: |
+          echo "Waiting for services to be up..."
+          sleep 10
+
+      - name: Run tests
+        run: |
+          curl -f http://localhost:3000
+          curl -f http://localhost:8000/api/posts/
+          curl -f http://localhost:80
+
+      # 构建并推送多架构后端服务镜像
+      - name: Build and push multi-arch backend service image
+        if: success()
         uses: docker/build-push-action@v2
         with:
           context: ./Django
           file: ./Django/Dockerfile
           tags: ${{ secrets.DOCKER_USERNAME }}/backend:latest
           platforms: linux/amd64,linux/arm64
-          load: true
+          push: true
 
-      - name: Build multi-arch web service image
+      # 构建并推送多架构前端服务镜像
+      - name: Build and push multi-arch web service image
+        if: success()
         uses: docker/build-push-action@v2
         with:
           context: ./astro
           file: ./astro/Dockerfile
           tags: ${{ secrets.DOCKER_USERNAME }}/web:latest
           platforms: linux/amd64,linux/arm64
-          load: true
+          push: true
 
-      - name: Build multi-arch nginx service image
+      # 构建并推送多架构 Nginx 服务镜像
+      - name: Build and push multi-arch nginx service image
+        if: success()
         uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./nginx.Dockerfile
           tags: ${{ secrets.DOCKER_USERNAME }}/nginx:latest
           platforms: linux/amd64,linux/arm64
-          load: true
-
-      - name: Start Docker Compose services
-        run: docker-compose up
-
-      - name: Wait for services to be up
-        run: |
-          echo "Waiting for services to be up..."
-          sleep 5
-
-      - name: Run tests
-        run: |
-          curl -f http://localhost:3000
-          curl -f http://localhost:8000/api/posts/
-          curl -f http://localhost:3000/posts/1
-
-      - name: Push backend service image
-        if: success()
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
-
-      - name: Push web service image
-        if: success()
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/web:latest
-
-      - name: Push nginx service image
-        if: success()
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/nginx:latest
+          push: true
