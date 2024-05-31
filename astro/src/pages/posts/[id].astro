@@ -17,7 +17,7 @@ const formatDate = (dateString) => {
     const day = date.getDate();
     return `${year} 年 ${month} 月 ${day} 日`;
 };
-// const apiUrl = process.env.API_URL || 'http://127.0.0.1:8000/api/posts/';
+const apiUrl = process.env.API_URL || 'http://127.0.0.1:8000/api/posts/';
 // 异步获取文章详情函数
 const fetchPost = async (id) => {
     const response = await fetch(`${apiUrl}${id}/`);

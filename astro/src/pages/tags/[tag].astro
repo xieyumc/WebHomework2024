@@ -6,8 +6,9 @@ const { tag } = Astro.params;
 let posts = [];
 
 // Fetch posts data from the Django backend
+const apiUrl = process.env.API_URL || 'http://127.0.0.1:8000/api/posts/';
 const fetchPosts = async () => {
-  const response = await fetch('http://localhost:8000/api/posts/');
+  const response =await fetch(`${apiUrl}`);
   const data = await response.json();
   const allPosts = data.map(post => ({
     url: `/posts/${post.id}`,
@@ -29,7 +30,7 @@ await fetchPosts();
 
 export async function getStaticPaths() {
   // Fetch all posts to extract unique tags
-  const response = await fetch('http://localhost:8000/api/posts/');
+  const response = await fetch(`${apiUrl}`);
   const data = await response.json();
   const allPosts = data.map(post => ({
     url: `/posts/${post.id}`,
