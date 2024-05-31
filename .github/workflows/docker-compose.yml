@@ -58,7 +58,7 @@ jobs:
       - name: Wait for services to be up
         run: |
           echo "Waiting for services to be up..."
-          sleep 5
+          sleep 6
 
       - name: Run tests
         run: |
