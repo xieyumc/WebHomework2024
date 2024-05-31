@@ -53,7 +53,7 @@ jobs:
 
       # 启动 Docker Compose 服务用于测试
       - name: Start Docker Compose services for testing
-        run: docker-compose up
+        run: docker-compose up -d
 
       - name: Wait for services to be up
         run: |
