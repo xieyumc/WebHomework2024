@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     services:
@@ -40,21 +39,35 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build backend service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest ./Django
+      - name: Build multi-arch backend service image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./Django
+          file: ./Django/Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/backend:latest
+          platforms: linux/amd64,linux/arm64
+          load: true
 
-      - name: Build web service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/web:latest ./astro
+      - name: Build multi-arch web service image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./astro
+          file: ./astro/Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/web:latest
+          platforms: linux/amd64,linux/arm64
+          load: true
 
-      - name: Build nginx service
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx:latest -f ./nginx.Dockerfile .
+      - name: Build multi-arch nginx service image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./nginx.Dockerfile
+          tags: ${{ secrets.DOCKER_USERNAME }}/nginx:latest
+          platforms: linux/amd64,linux/arm64
+          load: true
 
       - name: Start Docker Compose services
-        run: |
-          docker-compose up -d
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: docker-compose up
 
       - name: Wait for services to be up
         run: |
@@ -67,14 +80,14 @@ jobs:
           curl -f http://localhost:8000/api/posts/
           curl -f http://localhost:3000/posts/1
 
-      - name: Push backend service
+      - name: Push backend service image
         if: success()
         run: docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
 
-      - name: Push web service
+      - name: Push web service image
         if: success()
         run: docker push ${{ secrets.DOCKER_USERNAME }}/web:latest
 
-      - name: Push nginx service
+      - name: Push nginx service image
         if: success()
         run: docker push ${{ secrets.DOCKER_USERNAME }}/nginx:latest
