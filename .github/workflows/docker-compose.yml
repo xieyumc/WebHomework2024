@@ -53,18 +53,23 @@ jobs:
 
       # 启动 Docker Compose 服务用于测试
       - name: Start Docker Compose services for testing
-        run: docker-compose up -d
+        run: docker-compose up
 
       - name: Wait for services to be up
         run: |
           echo "Waiting for services to be up..."
-          sleep 10
+          sleep 5
 
       - name: Run tests
         run: |
           curl -f http://localhost:3000
+          curl -f http://localhost:3000/posts/1
+          curl -f http://localhost:3000/archive
+          curl -f http://localhost:3000/about
+          
           curl -f http://localhost:8000/api/posts/
-          curl -f http://localhost:80
+          curl -f http://localhost:8000/admin/
+          
 
       # 构建并推送多架构后端服务镜像
       - name: Build and push multi-arch backend service image
