@@ -1,3 +1,8 @@
+本项目是小组大作业，学期已结束，不再维护，
+
+本项目已经分支成一个新的博客项目 https://github.com/xieyumc/AppleBlog ，欢迎访问
+
+
 基于Astro和Django的Web小组大作业
 
 ![项目结构简图](astro/public/preview/img_2.png)
